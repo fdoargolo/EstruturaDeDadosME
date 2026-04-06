@@ -21,10 +21,42 @@ public class Conta {
 		//saldo -> mudança apenas por deposito ou saque
 		//TODO criar atribuição para dateTime.NOW() para dataabertura no construtor
 	}
-	
-    public void depositoConta(double valor) {} //TODO
 
-    public void sacarConta(double valor) {} //TODO
-    
-    public void encerrarConta() {} //TODO	
+    public int getNumeroConta() {
+        return numeroConta;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public boolean isAtiva() {
+        return ativa;
+    }
+
+    public void depositoConta(double valor) {
+        if (valor > 0 && ativa) {
+            saldo += valor;
+        }
+    }
+
+    public boolean sacarConta(double valor) {
+        if (valor > 0 && saldo >= valor && ativa) {
+            saldo -= valor;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean encerrarConta() {
+        if (saldo == 0) {
+            ativa = false;
+            return true;
+        }
+        return false;
+    }
+
+    public void exibirConta() {
+        System.out.println("Conta: " + numeroConta + " | Titular: " + titular + " | CPF: " + cpf + " | Tipo: " + tipoConta + " | Saldo: R$ " + saldo + " | Ativa: " + ativa);
+    }
 }
