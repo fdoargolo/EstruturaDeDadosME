@@ -9,7 +9,6 @@ public class Conta {
 	private String tipoConta;
 	private String dataAbertura;
 	private boolean ativa;
-	//segui nomes e tipos passados pela atividade do professor
 	
 	public Conta(int numeroConta, String titular, String cpf, String tipoConta) {
 		super();
@@ -18,8 +17,7 @@ public class Conta {
 		this.cpf = cpf;
 		this.tipoConta = tipoConta;
 		this.ativa = true;
-		//saldo -> mudança apenas por deposito ou saque
-		//TODO criar atribuição para dateTime.NOW() para dataabertura no construtor
+        this.dataAbertura = LocalDate.now().toString();
 	}
 
     public int getNumeroConta() {
@@ -57,6 +55,6 @@ public class Conta {
     }
 
     public void exibirConta() {
-        System.out.println("Conta: " + numeroConta + " | Titular: " + titular + " | CPF: " + cpf + " | Tipo: " + tipoConta + " | Saldo: R$ " + saldo + " | Ativa: " + ativa);
+        System.out.println("Conta: " + numeroConta + " | Titular: " + titular + " | CPF: " + cpf + " | Tipo: " + tipoConta + " | Saldo: R$ " + saldo + " | Ativa: " + ativa + " | Data: " + dataAbertura);
     }
 }
